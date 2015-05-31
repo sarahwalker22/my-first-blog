@@ -1,7 +1,9 @@
 <html>
     <head>
-        <title>Sarah's blog</title>
+        <title>Django Girls blog</title>
     </head>
+    <body>
+
      <h1>Test Heading1</h1> 
      <h2>Test Sub-heading</h2>
      <h3>Test Sub-sub-heading</h3>   
@@ -11,16 +13,21 @@
      <a href="http://djangogirls.org">Test link</a>
      <ul><li>Test first item</li><li>Test second item</li></ul>  
      <div></div>  
-
+   
     <p>Test paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph</p>
 
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="">Django Girls Blog</a></h1>
-        </div>
+{{posts}}
+<div>
+    <h1><a href="/">Django Girls Blog</a></h1>
+</div>
+
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaks }}</p>
+    </div>
+{% endfor %}
 
         <div>
             <p>published: 14.06.2014, 12:14</p>
